@@ -1,0 +1,166 @@
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 28-09-1998, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/admin.js:2296:21
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 28-02-2000, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/admin.js:2296:21
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 28-02-2000, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/admin.js:2296:21
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 06-01-1995, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/admin.js:2296:21
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 12-18-2021, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/users.js:1903:38
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 12-18-2021, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/users.js:1903:38
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:2247776) UnhandledPromiseRejectionWarning: Error: error:02016002:system library:stat:No such file or directory
+    at Sign.sign (internal/crypto/sig.js:103:29)
+    at Object.sign (/home/mowiwzzj/public_html/mowingplowing/node_modules/jsonwebtoken/node_modules/jwa/index.js:152:45)
+    at Object.jwsSign [as sign] (/home/mowiwzzj/public_html/mowingplowing/node_modules/jsonwebtoken/node_modules/jws/lib/sign-stream.js:32:24)
+    at Object.module.exports [as sign] (/home/mowiwzzj/public_html/mowingplowing/node_modules/jsonwebtoken/sign.js:204:16)
+    at ServiceAccountCredential.createAuthJwt_ (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/credential/credential-internal.js:102:20)
+    at ServiceAccountCredential.getAccessToken (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/credential/credential-internal.js:75:26)
+    at FirebaseAppInternals.refreshToken (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/firebase-app.js:46:49)
+    at FirebaseAppInternals.getToken (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/firebase-app.js:37:25)
+    at AuthorizedHttpClient.getToken (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/utils/api-request.js:679:34)
+    at AuthorizedHttpClient.send (/home/mowiwzzj/public_html/mowingplowing/node_modules/firebase-admin/lib/utils/api-request.js:667:21)
+(node:2247776) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:2247776) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 12-20-2021, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/users.js:1903:38
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 12-21-2021, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at /home/mowiwzzj/public_html/mowingplowing/routes/users.js:1702:38
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+(node:1008334) UnhandledPromiseRejectionWarning: #<ServerResponse>
+(node:1008334) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+(node:1008334) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:1008334) UnhandledPromiseRejectionWarning: #<ServerResponse>
+(node:1008334) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+(node:1008334) UnhandledPromiseRejectionWarning: #<ServerResponse>
+(node:1008334) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 3)
+(node:1008334) UnhandledPromiseRejectionWarning: #<ServerResponse>
+(node:1008334) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 4)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 2021-10-1 00:00:00, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at DATE._applyTimezone (/home/mowiwzzj/public_html/mowingplowing/node_modules/sequelize/lib/data-types.js:467:21)
+    at DATE._stringify (/home/mowiwzzj/public_html/mowingplowing/node_modules/sequelize/lib/dialects/mysql/data-types.js:56:19)
+Deprecation warning: value provided is not in a recognized RFC2822 or ISO format. moment construction falls back to js Date(), which is not reliable across all browsers and versions. Non RFC2822/ISO date formats are discouraged. Please refer to http://momentjs.com/guides/#/warnings/js-date/ for more info.
+Arguments: 
+[0] _isAMomentObject: true, _isUTC: false, _useUTC: false, _l: undefined, _i: 08-09-2021 00:00:00, _f: undefined, _strict: undefined, _locale: [object Object]
+Error
+    at Function.createFromInputFallback (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:319:25)
+    at configFromString (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2536:19)
+    at configFromInput (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2977:13)
+    at prepareConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2960:13)
+    at createFromConfig (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:2927:44)
+    at createLocalOrUTC (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3021:16)
+    at createLocal (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:3025:16)
+    at hooks (/home/mowiwzzj/public_html/mowingplowing/node_modules/moment/moment.js:16:29)
+    at DATE._applyTimezone (/home/mowiwzzj/public_html/mowingplowing/node_modules/sequelize/lib/data-types.js:467:21)
+    at DATE._stringify (/home/mowiwzzj/public_html/mowingplowing/node_modules/sequelize/lib/dialects/mysql/data-types.js:56:19)
