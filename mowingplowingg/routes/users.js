@@ -84,314 +84,314 @@ const { reservationsUrl } = require('twilio/lib/jwt/taskrouter/util');
 const Op = Sequelize.Op;
 
 
-cron.schedule('*/ * * * *', async() => {
-  console.log("cron working");
+// cron.schedule('*/ * * * *', async() => {
+//   console.log("cron working");
 
-  var today_date = moment().add(1, 'days').format('YYYY-MM-DD');
+//   var today_date = moment().add(1, 'days').format('YYYY-MM-DD');
 
-  try{
-        //  var getrecurring = await Recurring_history.findAll({
-        //   where: sequelize.where(sequelize.fn('date', sequelize.col('date')), '=', today_date)
-        // //   where:{status:'Active'}
-        //  });
+//   try{
+//         //  var getrecurring = await Recurring_history.findAll({
+//         //   where: sequelize.where(sequelize.fn('date', sequelize.col('date')), '=', today_date)
+//         // //   where:{status:'Active'}
+//         //  });
         
-         var getrecurring = await Recurring_history.findAll({
-         where: {
-             [Op.and]:sequelize.where(sequelize.fn('date', sequelize.col('date')), '=', today_date),
-             status:'Active'
-         },
-         });
+//          var getrecurring = await Recurring_history.findAll({
+//          where: {
+//              [Op.and]:sequelize.where(sequelize.fn('date', sequelize.col('date')), '=', today_date),
+//              status:'Active'
+//          },
+//          });
          
          
-     //  return res.json(getrecurring);
-         if(getrecurring && getrecurring.length > 0 ){
-            for(var i=0; getrecurring.length > i; i++ ){
+//      //  return res.json(getrecurring);
+//          if(getrecurring && getrecurring.length > 0 ){
+//             for(var i=0; getrecurring.length > i; i++ ){
             
-                var neworder_id =  'ORD'+Math.floor(Math.random() * 100000000000);
+//                 var neworder_id =  'ORD'+Math.floor(Math.random() * 100000000000);
                 
-                var checkOrderIdExist = await Order.findOne({where:{order_id:neworder_id}});
-                if(checkOrderIdExist){
-                var neworder_id =  'ORD'+Math.floor(Math.random() * 1000000000000);
-                }
+//                 var checkOrderIdExist = await Order.findOne({where:{order_id:neworder_id}});
+//                 if(checkOrderIdExist){
+//                 var neworder_id =  'ORD'+Math.floor(Math.random() * 1000000000000);
+//                 }
                 
                 
-                var getorder = await Order.findOne({where:{order_id:getrecurring[i].order_id}});
-                var finalamount = (parseFloat(getrecurring[i].grand_total) - parseFloat(getrecurring[i].tax));
-                var gfinalamount =   parseFloat(finalamount)- parseFloat(getrecurring[i].admin_fee)
-                var totalAdminCommision =    parseFloat(getrecurring[i].admin_commision)/100*parseFloat(gfinalamount);
-                var provider_amountttt     = parseFloat(gfinalamount) - parseFloat(totalAdminCommision);
+//                 var getorder = await Order.findOne({where:{order_id:getrecurring[i].order_id}});
+//                 var finalamount = (parseFloat(getrecurring[i].grand_total) - parseFloat(getrecurring[i].tax));
+//                 var gfinalamount =   parseFloat(finalamount)- parseFloat(getrecurring[i].admin_fee)
+//                 var totalAdminCommision =    parseFloat(getrecurring[i].admin_commision)/100*parseFloat(gfinalamount);
+//                 var provider_amountttt     = parseFloat(gfinalamount) - parseFloat(totalAdminCommision);
                 
-                var getstripe =  await Admin.findOne();
-                var stripe = Stripe(getstripe.stripe_key);
+//                 var getstripe =  await Admin.findOne();
+//                 var stripe = Stripe(getstripe.stripe_key);
         
                 
-                var getcard = await Card.findOne({
-                    where:{user_id:getrecurring[i].user_id,is_primary:1,is_deleted:0}
+//                 var getcard = await Card.findOne({
+//                     where:{user_id:getrecurring[i].user_id,is_primary:1,is_deleted:0}
                     
-                });
+//                 });
                 
-                var user = await User.findOne({
-                    where:{id:getrecurring[i].user_id,is_deleted:0}
+//                 var user = await User.findOne({
+//                     where:{id:getrecurring[i].user_id,is_deleted:0}
                     
-                });
+//                 });
                 
-                if(getcard){
+//                 if(getcard){
                     
                 
                         
                         
-                      const charge = await stripe.charges.create({
-                              amount: getrecurring[i].grand_total*100,
-                              currency:'usd',
-                              source: getcard.card_id,
-                              description:'recurring payment from '+user.fristname+" "+user.lastname,
-                              metadata:{user_id:getrecurring[i].user_id},
-                              customer:user.customer_id
-                      });
+//                       const charge = await stripe.charges.create({
+//                               amount: getrecurring[i].grand_total*100,
+//                               currency:'usd',
+//                               source: getcard.card_id,
+//                               description:'recurring payment from '+user.fristname+" "+user.lastname,
+//                               metadata:{user_id:getrecurring[i].user_id},
+//                               customer:user.customer_id
+//                       });
                       
-                      if(charge.status=='succeeded'){
+//                       if(charge.status=='succeeded'){
                            
-                        await Transaction.create({
-                            user_id:getrecurring[i].user_id,
-                            order_id:neworder_id,
-                            category_id:getorder.category_id,
-                            transaction_id : charge.id,
-                            amount:getrecurring[i].grand_total,
-                            stripe_response: JSON.stringify(charge),
-                            payment_status : 2,
-                            provider_id:0
-                        });  
+//                         await Transaction.create({
+//                             user_id:getrecurring[i].user_id,
+//                             order_id:neworder_id,
+//                             category_id:getorder.category_id,
+//                             transaction_id : charge.id,
+//                             amount:getrecurring[i].grand_total,
+//                             stripe_response: JSON.stringify(charge),
+//                             payment_status : 2,
+//                             provider_id:0
+//                         });  
           
             
           
            
            
                           
-                     await Order.create({
-                            order_id:neworder_id,
-                            user_id:getrecurring[i].user_id,
-                            property_id:getrecurring[i].property_id,
-                            category_id:getrecurring[i].category_id,
-                            subcategory_id:0,
-                            subcategory_amount:0,
-                            service_for:"",
-                            on_demand:"Schedule",
-                            on_demand_fee:0,
-                            date:today_date,
-                            lat:getorder.lat,
-                            lng:getorder.lng,
-                            lawn_size_id:getrecurring[i].lawn_size_id,
-                            lawn_size_amount:getrecurring[i].lawn_size_amount,
+//                      await Order.create({
+//                             order_id:neworder_id,
+//                             user_id:getrecurring[i].user_id,
+//                             property_id:getrecurring[i].property_id,
+//                             category_id:getrecurring[i].category_id,
+//                             subcategory_id:0,
+//                             subcategory_amount:0,
+//                             service_for:"",
+//                             on_demand:"Schedule",
+//                             on_demand_fee:0,
+//                             date:today_date,
+//                             lat:getorder.lat,
+//                             lng:getorder.lng,
+//                             lawn_size_id:getrecurring[i].lawn_size_id,
+//                             lawn_size_amount:getrecurring[i].lawn_size_amount,
                             
-                            lawn_height_id:0,//getrecurring[i].lawn_height_id,
-                            lawn_height_amount:0,//getrecurring[i].lawn_height_amount,
+//                             lawn_height_id:0,//getrecurring[i].lawn_height_id,
+//                             lawn_height_amount:0,//getrecurring[i].lawn_height_amount,
                             
-                            service_type:2,
-                            recurring_service_id:0,
+//                             service_type:2,
+//                             recurring_service_id:0,
                             
-                            fence_id:getrecurring[i].fence_id,
-                            fence_amount:getrecurring[i].fence_amount,
-                            cleanup_id:getrecurring[i].cleanup_id,
-                            cleanup_amount:getrecurring[i].cleanup_amount,
-                            provider_id:0,
-                            corner_lot_id:getrecurring[i].corner_lot_id,
-                            corner_lot_amount:getrecurring[i].corner_lot_amount,
-                            color_id:0,
-                            car_number:0,
-                            driveway:0,
-                            driveway_amount:0,
-                            sidewalk_id:0,
-                            sidewalk_amount:0,
-                            walkway_id:0,
-                            walkway_amount:0,
-                            admin_fee_perc:getrecurring[i].admin_fee_perc,
-                            admin_fee:getrecurring[i].admin_fee,
-                            tax_perc:getrecurring[i].tax_perc,
-                            tax:getrecurring[i].tax,
-                            img1:getorder.img1,
-                            img2:getorder.img2,
-                            img3:getorder.img3,
-                            img4:getorder.img4,
-                            gate_code:(getrecurring[i].gate_code) ? getrecurring[i].gate_code:'',
-                            instructions:"",
-                            total_amount:getrecurring[i].total_amount,
-                            grand_total:getrecurring[i].grand_total,
-                            parent_recurrent_order_id:getorder.order_id,
-                            provider_amount:parseFloat(provider_amountttt),
-                            payment_status:2,
+//                             fence_id:getrecurring[i].fence_id,
+//                             fence_amount:getrecurring[i].fence_amount,
+//                             cleanup_id:getrecurring[i].cleanup_id,
+//                             cleanup_amount:getrecurring[i].cleanup_amount,
+//                             provider_id:0,
+//                             corner_lot_id:getrecurring[i].corner_lot_id,
+//                             corner_lot_amount:getrecurring[i].corner_lot_amount,
+//                             color_id:0,
+//                             car_number:0,
+//                             driveway:0,
+//                             driveway_amount:0,
+//                             sidewalk_id:0,
+//                             sidewalk_amount:0,
+//                             walkway_id:0,
+//                             walkway_amount:0,
+//                             admin_fee_perc:getrecurring[i].admin_fee_perc,
+//                             admin_fee:getrecurring[i].admin_fee,
+//                             tax_perc:getrecurring[i].tax_perc,
+//                             tax:getrecurring[i].tax,
+//                             img1:getorder.img1,
+//                             img2:getorder.img2,
+//                             img3:getorder.img3,
+//                             img4:getorder.img4,
+//                             gate_code:(getrecurring[i].gate_code) ? getrecurring[i].gate_code:'',
+//                             instructions:"",
+//                             total_amount:getrecurring[i].total_amount,
+//                             grand_total:getrecurring[i].grand_total,
+//                             parent_recurrent_order_id:getorder.order_id,
+//                             provider_amount:parseFloat(provider_amountttt),
+//                             payment_status:2,
 
-                      });
-                         var gtrecurring = await Recurring_history.findOne({
-                                             where:{id:getrecurring[i].id}
-                                              });
+//                       });
+//                          var gtrecurring = await Recurring_history.findOne({
+//                                              where:{id:getrecurring[i].id}
+//                                               });
                                               
-                        gtrecurring.date = moment(gtrecurring.date).add(gtrecurring.on_every, 'days');
-                        gtrecurring.save();
+//                         gtrecurring.date = moment(gtrecurring.date).add(gtrecurring.on_every, 'days');
+//                         gtrecurring.save();
                         
                         
                         
                         
                         
                         
-                        // 
+//                         // 
                          
-            // var all_provider= await User.findAll({where:{is_deleted:0,is_blocked:0,status:1,role:2}})
-        var radius = await Setting.findOne({
-        where: {
-            field_key: 'radius'
-        }
-        });
-        var all_provider = await User.findAll({
-            where: {
-                is_deleted: 0,
-                is_blocked: 0,
-                status: 1,
-                role: 2
-            },
-            attributes: ['id','fcm_token','lat','lng',
-                [Sequelize.literal("6371 * acos(cos(radians(" + parseFloat(getorder.lat) + ")) * cos(radians(lat)) * cos(radians(" + parseFloat(getorder.lng) + ") - radians(lng)) + sin(radians(" + parseFloat(getorder.lat) + ")) * sin(radians(lat)))"), 'distance']
-            ],
-            having: Sequelize.literal('distance < ' + parseFloat(radius.field_value)),
-            logging: console.log,
+//             // var all_provider= await User.findAll({where:{is_deleted:0,is_blocked:0,status:1,role:2}})
+//         var radius = await Setting.findOne({
+//         where: {
+//             field_key: 'radius'
+//         }
+//         });
+//         var all_provider = await User.findAll({
+//             where: {
+//                 is_deleted: 0,
+//                 is_blocked: 0,
+//                 status: 1,
+//                 role: 2
+//             },
+//             attributes: ['id','fcm_token','lat','lng',
+//                 [Sequelize.literal("6371 * acos(cos(radians(" + parseFloat(getorder.lat) + ")) * cos(radians(lat)) * cos(radians(" + parseFloat(getorder.lng) + ") - radians(lng)) + sin(radians(" + parseFloat(getorder.lat) + ")) * sin(radians(lat)))"), 'distance']
+//             ],
+//             having: Sequelize.literal('distance < ' + parseFloat(radius.field_value)),
+//             logging: console.log,
 
-        });
+//         });
            
-            for(var i=0; i<all_provider.length; i++)
-            {
-                if(all_provider[i].fcm_token!='')
-                {
+//             for(var i=0; i<all_provider.length; i++)
+//             {
+//                 if(all_provider[i].fcm_token!='')
+//                 {
                     
-                var provider_category = await Provider_equipment.findAll({where:{is_deleted:0,provider_id:all_provider[i].id}})
+//                 var provider_category = await Provider_equipment.findAll({where:{is_deleted:0,provider_id:all_provider[i].id}})
                  
-                let group = provider_category.reduce((r, a) => {
-                r[a.category_id] = [...r[a.category_id] || [], a];
-                return r;
-                }, {});
+//                 let group = provider_category.reduce((r, a) => {
+//                 r[a.category_id] = [...r[a.category_id] || [], a];
+//                 return r;
+//                 }, {});
                 
                 
                 
-                var categories = [];
-                Object.keys(group).forEach((k,v) => {
-                categories.push(k)
-                });
+//                 var categories = [];
+//                 Object.keys(group).forEach((k,v) => {
+//                 categories.push(k)
+//                 });
 
-                if(categories.indexOf((getorder.category_id).toString()) !== -1){
-                //return res.json("ok")
-                //   adminpush.messaging().sendToDevice(all_provider[i].fcm_token,payload,options)
-                 if(all_provider[i].fcm_token !=''){
+//                 if(categories.indexOf((getorder.category_id).toString()) !== -1){
+//                 //return res.json("ok")
+//                 //   adminpush.messaging().sendToDevice(all_provider[i].fcm_token,payload,options)
+//                  if(all_provider[i].fcm_token !=''){
                 
-                        //start notification  
-                        var message = { 
-                        to: all_provider[i].fcm_token, 
-                        collapse_key: '',
+//                         //start notification  
+//                         var message = { 
+//                         to: all_provider[i].fcm_token, 
+//                         collapse_key: '',
                         
-                        notification:{
-                            title:'New Job',
-                            body:'(NEW JOB) available in your Area !'
-                        },
+//                         notification:{
+//                             title:'New Job',
+//                             body:'(NEW JOB) available in your Area !'
+//                         },
                     
-                        data:{
-                            order_id:neworder_id,
-                            title:'New Job',
-                            body:'(NEW JOB) available in your Area !',
-                            click_action:'postjob'
-                        }
-                        };
+//                         data:{
+//                             order_id:neworder_id,
+//                             title:'New Job',
+//                             body:'(NEW JOB) available in your Area !',
+//                             click_action:'postjob'
+//                         }
+//                         };
                     
                     
-                        fcm.send(message, function(err, response){
-                        if (err) {
-                        console.log("errrrr notification");
-                        } else {
-                        console.log("notification done");
-                        }
-                        });
-                        //end notification
-                }
-                }
+//                         fcm.send(message, function(err, response){
+//                         if (err) {
+//                         console.log("errrrr notification");
+//                         } else {
+//                         console.log("notification done");
+//                         }
+//                         });
+//                         //end notification
+//                 }
+//                 }
                 
-                }
-            }
-                        // 
+//                 }
+//             }
+//                         // 
                         
                         
-                        if(user.fcm_token !=''){
+//                         if(user.fcm_token !=''){
                         
-                        //start notification  
-                        var message = { 
-                        to: user.fcm_token, 
-                        collapse_key: '',
+//                         //start notification  
+//                         var message = { 
+//                         to: user.fcm_token, 
+//                         collapse_key: '',
                         
-                        notification:{
-                        title:'You recurrent Job',
-                        body:'Your recurrent job posted'
-                        },
+//                         notification:{
+//                         title:'You recurrent Job',
+//                         body:'Your recurrent job posted'
+//                         },
                         
-                        data:{
-                        order_id:neworder_id,
-                        title:'You recurrent Job',
-                        body:'Your recurrent job posted',
-                        click_action:'recurrentjob'
-                        }
-                        };
+//                         data:{
+//                         order_id:neworder_id,
+//                         title:'You recurrent Job',
+//                         body:'Your recurrent job posted',
+//                         click_action:'recurrentjob'
+//                         }
+//                         };
                         
                         
-                        fcm1.send(message, function(err, response){
-                        if (err) {
-                        console.log("errrrr notification");
-                        } else {
-                        console.log("notification done");
-                        }
-                        });
-                        //end notification
-                        }
+//                         fcm1.send(message, function(err, response){
+//                         if (err) {
+//                         console.log("errrrr notification");
+//                         } else {
+//                         console.log("notification done");
+//                         }
+//                         });
+//                         //end notification
+//                         }
          
          
                            
-                      }else{
+//                       }else{
                           
                           
-                         var gtrecurring = await Recurring_history.findOne({
-                                             where:{id:getrecurring[i].id}
-                                              });
+//                          var gtrecurring = await Recurring_history.findOne({
+//                                              where:{id:getrecurring[i].id}
+//                                               });
                                               
-                        gtrecurring.status ='Cancel';
-                        gtrecurring.save();
+//                         gtrecurring.status ='Cancel';
+//                         gtrecurring.save();
                          
-                         if(user.fcm_token !=''){
+//                          if(user.fcm_token !=''){
                         
-                        //start notification  
-                        var message = { 
-                        to: user.fcm_token, 
-                        collapse_key: '',
+//                         //start notification  
+//                         var message = { 
+//                         to: user.fcm_token, 
+//                         collapse_key: '',
                         
-                        notification:{
-                        title:'You recurrent job has cancelled',
-                        body:'Your recurrent job cancelled'
-                        },
+//                         notification:{
+//                         title:'You recurrent job has cancelled',
+//                         body:'Your recurrent job cancelled'
+//                         },
                         
-                        data:{
-                        order_id:neworder_id,
-                        title:'You recurrent cancelled',
-                        body:'Your recurrent job cancelled',
-                        click_action:'recurrentjob'
-                        }
-                        };
+//                         data:{
+//                         order_id:neworder_id,
+//                         title:'You recurrent cancelled',
+//                         body:'Your recurrent job cancelled',
+//                         click_action:'recurrentjob'
+//                         }
+//                         };
                         
                         
-                        fcm.send(message, function(err, response){
-                        if (err) {
-                        console.log("errrrr notification");
-                        } else {
-                        console.log("notification done");
-                        }
-                        });
-                        //end notification
-                        } 
-                      }
+//                         fcm.send(message, function(err, response){
+//                         if (err) {
+//                         console.log("errrrr notification");
+//                         } else {
+//                         console.log("notification done");
+//                         }
+//                         });
+//                         //end notification
+//                         } 
+//                       }
                         
                     
-                }
+//                 }
                
 
                 
@@ -401,20 +401,20 @@ cron.schedule('*/ * * * *', async() => {
                 
     
             
-            }
+//             }
            
           
              
-         }
-        //  return res.json("ok")
-       console.log("ok")
+//          }
+//         //  return res.json("ok")
+//        console.log("ok")
      
-     }catch(err){
-         console.log(err)
-         console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrr cron")
-     }
+//      }catch(err){
+//          console.log(err)
+//          console.log("errorrrrrrrrrrrrrrrrrrrrrrrrrr cron")
+//      }
     
-});
+// });
  
  
  
